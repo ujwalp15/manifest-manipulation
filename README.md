@@ -17,3 +17,19 @@ mkdir -p .repo/local_manifests/
 mv delete_darwin.xml .repo/local_manifests/
 repo sync -j$(nproc --all) -c --no-tags --force-sync -f
 ```
+
+### linux-delete
+
+> Creates a linux projects removal manifest for your ROM, helpful
+for darwin builders short on bandwidth and/or disk space
+
+To use, copy the `delete-linux.py` file to your working directory, then execute by running `./delete-linux.py`
+
+To utilise the manifest created
+
+```
+mkdir -p .repo/local_manifests/
+mv delete_linux.xml .repo/local_manifests/
+repo sync -j$(nproc --all) -c --no-tags --force-sync -f
+```
+
