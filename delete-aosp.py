@@ -33,10 +33,10 @@ if defaults.get('remote') == 'github': # Gah, it's LineageOS. No remote specifie
 else:
     for project in projects:
         remote = project.get('remote')
-    if not remote:
-        lm.append(ElementTree.Element('remove-project', attrib = {
-            'name': project.get('name')
-        }))
+        if not remote:
+             lm.append(ElementTree.Element('remove-project', attrib = {
+                'name': project.get('name')
+             }))
 indent(lm, 0)
 raw_xml = ElementTree.tostring(lm)
 raw_xml = '<?xml version='1.0' encoding='UTF-8'?>\n' + raw_xml.decode('utf-8')
