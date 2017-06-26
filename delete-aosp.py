@@ -22,8 +22,17 @@ manifest = subprocess.check_output(['repo','manifest'])
 xml_root = ElementTree.fromstring(manifest)
 lm = ElementTree.Element("manifest")
 projects = xml_root.findall('project')
-for project in projects:
-    remote = project.get('remote')
+defaults = xml_root.find('default')
+if defaults.get('remote') == 'github': # Gah, it's LineageOS. No remote specified == Lineage github.
+    for project in projects:
+        remote = project.get('remote')
+        if remote == 'aosp':
+            lm.append(ElementTree.Element("remove-project", attrib = {
+                "name": project.get('name')
+            }))
+else:
+    for project in projects:
+        remote = project.get('remote')
     if not remote:
         lm.append(ElementTree.Element("remove-project", attrib = {
             "name": project.get('name')
