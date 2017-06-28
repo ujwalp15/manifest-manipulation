@@ -8,7 +8,7 @@
 > Creates a darwin projects removal manifest for your ROM, helpful
 for linux builders short on bandwidth and/or disk space
 
-To use, copy the `delete-darwin.py` file to your working directory, then execute by running `./delete-darwin.py`
+To use, copy the `delete-darwin.py` and `functions.py` files to your working directory, then execute by running `./delete-darwin.py`
 
 To utilise the manifest created
 
@@ -23,7 +23,7 @@ repo sync -j$(nproc --all) -c --no-tags --force-sync -f
 > Creates a linux projects removal manifest for your ROM, helpful
 for darwin builders short on bandwidth and/or disk space
 
-To use, copy the `delete-linux.py` file to your working directory, then execute by running `./delete-linux.py`
+To use, copy the `delete-linux.py` and `functions.py` files to your working directory, then execute by running `./delete-linux.py`
 
 To utilise the manifest created
 
@@ -39,7 +39,7 @@ repo sync -j$(nproc --all) -c --no-tags --force-sync -f
 who don't/can't build locally and hence don't want the extra crap
 they won't be working on
 
-To use, copy the `delete-aosp.py` file to your working directory, then execute by running `./delete-aosp.py`
+To use, copy the `delete-aosp.py` and `functions.py` files to your working directory, then execute by running `./delete-aosp.py`
 
 To utilise the manifest created
 
@@ -53,7 +53,7 @@ repo sync -j$(nproc --all) -c --no-tags --force-sync -f
 
 > Creates a manifest with all prebuilts set to clone-depth=1 for minimising bandwidth and disk usage
 
-To use, copy the `shallow-prebuilts.py` file to your working directory, then execute by running `./shallow-prebuilts.py`
+To use, copy the `shallow-prebuilts.py` and `functions.py` files to your working directory, then execute by running `./shallow-prebuilts.py`
 
 To utilise the manifest created
 
