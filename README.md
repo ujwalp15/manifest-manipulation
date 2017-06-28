@@ -48,3 +48,17 @@ mkdir -p .repo/local_manifests/
 mv delete_aosp.xml .repo/local_manifests/
 repo sync -j$(nproc --all) -c --no-tags --force-sync -f
 ```
+
+### shallow-prebuilts
+
+> Creates a manifest with all prebuilts set to clone-depth=1 for minimising bandwidth and disk usage
+
+To use, copy the `shallow-prebuilts.py` file to your working directory, then execute by running `./shallow-prebuilts.py`
+
+To utilise the manifest created
+
+```
+mkdir -p .repo/local_manifests/
+mv shallow_prebuilts.xml .repo/local_manifests/
+repo sync -j$(nproc --all) -c --no-tags --force-sync -f
+```
