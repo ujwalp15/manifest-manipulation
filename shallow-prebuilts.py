@@ -2,23 +2,11 @@
 
 from xml.etree import ElementTree
 import subprocess
+from functions import indent, is_source_tree
+import sys
 
-# in-place prettyprint formatter
-def indent(elem, level=0):
-    i = '\n' + level*'  '
-    if len(elem):
-        if not elem.text or not elem.text.strip():
-            elem.text = i + '  '
-        if not elem.tail or not elem.tail.strip():
-            elem.tail = i
-        for elem in elem:
-            indent(elem, level+1)
-        if not elem.tail or not elem.tail.strip():
-            elem.tail = i
-    else:
-        if level and (not elem.tail or not elem.tail.strip()):
-            elem.tail = i
-
+if not is_source_tree():
+    sys.exit(1)
 manifest = subprocess.check_output(['repo','manifest'])
 xml_root = ElementTree.fromstring(manifest)
 lm = ElementTree.Element('manifest')
