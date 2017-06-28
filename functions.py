@@ -19,6 +19,4 @@ def indent(elem, level=0):
             elem.tail = i
 
 def is_source_tree():
-    if os.exists('.repo/manifests/'):
-        return True
-    return False
+    return os.exists('.repo/manifests/')
