@@ -62,3 +62,9 @@ mkdir -p .repo/local_manifests/
 mv shallow_prebuilts.xml .repo/local_manifests/
 repo sync -j$(nproc --all) -c --no-tags --force-sync -f
 ```
+
+
+## Credits
+
+- [Akhil Narang](https://github.com/akhilnarang) for helping around and fixing my derps :P
+- [Anthony King](https://github.com/cybojenix) for the formatter function pulled off the SlimRoms roomservice script
